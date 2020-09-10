@@ -15,12 +15,19 @@ import java.util.Scanner;
 public class App {
     public void run(){
         System.out.println("Привет");
-        System.out.println("Программа заудмала число от 0 до 5, угадай:");
+        System.out.println("Поиграем? Укажи диапозон игры.");
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("min = ");
+        int min = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("max = ");
+        int max = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("Программа заудмала число от "+min+" до "+max+", угадай");
         Random random = new Random();
         int attempt = 0;
-        do {            
-            int myNumber = random.nextInt(5 - 0 + 1) + 0;
-            Scanner scanner = new Scanner(System.in);
+        do {
+            int myNumber = random.nextInt(max - min + 1) + min;
             int gamerNumber = scanner.nextInt();
             if(myNumber == gamerNumber){
                 System.out.println("Ты выиграл! Молодец!");
@@ -31,7 +38,7 @@ public class App {
                     + myNumber);
                 break;
             }else{
-                    System.out.println("Попробуй ещё раз");
+                    System.out.println("Попробуй ещё раз: ");
                 }
                 attempt++;
             }
